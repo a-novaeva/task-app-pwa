@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task App</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#dfe8df" />
+</head>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./service-worker.js");
+  }
+</script>
+
+
+<body>
+  <main class="app">
+    <div class="window">
+      <header class="titlebar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </header>
+
+      <section class="content">
+        <form class="add" id="addForm">
+          <input id="taskInput" type="text" placeholder="Add a new task" autocomplete="off" />
+        </form>
+
+        <ul class="list" id="taskList">
+        </ul>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-filter="all">All</button>
+          <button class="tab" data-filter="active">Active</button>
+          <button class="tab" data-filter="completed">Completed</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
